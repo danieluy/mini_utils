@@ -1,6 +1,8 @@
 "use strict"
 
 const removeVowelAccent = function (str) {
+  if (!str || typeof str !== 'string')
+    throw new Error('Parameter mismatch, a String must be provided')
   var noAccents = []
   for (var i = 0; i < str.length; i++) {
     let char = str.charAt(i)
@@ -15,4 +17,6 @@ const removeVowelAccent = function (str) {
   return noAccents.join('')
 }
 
-export { removeVowelAccent }
+module.exports = {
+  removeVowelAccent: removeVowelAccent
+}
